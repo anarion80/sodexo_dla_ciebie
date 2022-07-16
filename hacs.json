@@ -1,10 +1,7 @@
 {
     "name": "Sodexo Dla Ciebie",
     "hacs": "0.0.1",
-    "domains": [
-        "sensor"
-    ],
-    "homeassistant": "0.118.0",
+    "homeassistant": "2022.7.5",
     "render_readme": true,
     "iot_class": "cloud_polling",
     "country": "PL"
