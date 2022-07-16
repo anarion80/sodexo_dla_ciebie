@@ -2,7 +2,6 @@
     "config": {
         "step": {
             "user": {
-                "title": "Sodexo Dla Ciebie",
                 "description": "Jeśli potrzebujesz pomocy z konfiguracją udaj się tutaj: https://github.com/anarion80/sodexo_dla_ciebie",
                 "data": {
                     "username": "Adres e-mail",
