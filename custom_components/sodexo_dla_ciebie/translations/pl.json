@@ -16,14 +16,5 @@
         "abort": {
             "already_configured": "Integracja jest już skonfigurowana dla tego adresu e-mail"
         }
-    },
-    "options": {
-        "step": {
-            "user": {
-                "data": {
-                    "sensor": "Sensor enabled"
-                }
-            }
-        }
     }
 }
