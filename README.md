@@ -51,6 +51,7 @@ Assuming you have already installed and configured HACS, follow these steps:
 The integration pulls the current cards balance and presents as entity state. In addition, a few additional card details are pulled as entity attributes.
 
 This is an example of a few cards added:
+
 ![example][exampleimg]
 
 # Legal notice
