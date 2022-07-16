@@ -1,56 +1,87 @@
+# Sodexo Dla Ciebie Card Integration
+
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
-[![License][license-shield]][license]
+[![License][license-shield]](LICENSE)
 
 [![hacs][hacsbadge]][hacs]
-[![Project Maintenance][maintenance-shield]][user_profile]
+![Project Maintenance][maintenance-shield]
 [![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
 
 [![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
 
-_Component to integrate with [integration_blueprint][integration_blueprint]._
+Sodexo Dla Ciebie - Custom Component for Home Assistant
 
-**This component will set up the following platforms.**
+The data source for this integration is [Sodexo Dla Ciebie](https://dlaciebie.sodexo.pl/) - Polish instance od Sodexo, provider of employee benefit cards.
 
-Platform | Description
--- | --
-`binary_sensor` | Show something `True` or `False`.
-`sensor` | Show info from API.
-`switch` | Switch something `True` or `False`.
-
-![example][exampleimg]
+The author of this project categorically rejects any and all responsibility for the card balance and other data that were presented by the integration.
 
 {% if not installed %}
-## Installation
+# Installation
+## HACS (Recommended)
+This is an official HACS integration and can be added via HACS.
 
-1. Click install.
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Blueprint".
+Assuming you have already installed and configured HACS, follow these steps:
 
+1. Navigate to the HACS integrations page
+2. Choose Integrations under HACS
+3. Click the '+' button on the bottom of the page
+4. Serch for "Sodexo Dla Ciebie", choose it, and click install in HACS
+5. Ready! Now continue with the configuration.
+
+## Manual
+1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
+2. If you do not have a `custom_components` directory (folder) there, you need to create it.
+3. In the `custom_components` directory (folder) create a new folder called `sodexo_dla_ciebie`.
+4. Download _all_ the files from the `custom_components/sodexo_dla_ciebie/` directory (folder) in this repository.
+5. Place the files you downloaded in the new directory (folder) you created.
+6. Restart Home Assistant
 {% endif %}
 
+# Configuration
 
-## Configuration is done in the UI
+## Through the interface
+1. Navigate to `Settings > Devices & Services` and then click `Add Integration`
+2. Search for `Sodexo Dla Ciebie`
+3. Enter your credentials (e-mail and password)
+4. Select if you want to import all cards, or only active ones
+5. Repeat the procedure as many times as desired to include cards from other accounts
+
+## Details
+
+The integration pulls the current cards balance and presents as entity state. In addition, a few additional card details are pulled as entity attributes.
+
+This is an example of a few cards added:
+![example][exampleimg]
+
+# Legal notice
+This is a personal project and isn't in any way affiliated with, sponsored or endorsed by [Sodexo Poland](https://www.sodexo.pl/).
+
+All product names, trademarks and registered trademarks in (the images in) this repository, are property of their respective owners. All images in this repository are used by the project for identification purposes only.
 
 <!---->
 
+## Contributions are welcome!
+
+If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md)
+
 ***
 
-[integration_blueprint]: https://github.com/custom-components/integration_blueprint
-[buymecoffee]: https://www.buymeacoffee.com/ludeeus
+[sodexo_dla_ciebie]: https://github.com/anarion80/sodexo_dla_ciebie
+[buymecoffee]: https://www.buymeacoffee.com/anarion
 [buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=for-the-badge
-[commits-shield]: https://img.shields.io/github/commit-activity/y/custom-components/integration_blueprint.svg?style=for-the-badge
-[commits]: https://github.com/custom-components/integration_blueprint/commits/master
-[hacs]: https://hacs.xyz
+[commits-shield]: https://img.shields.io/github/commit-activity/y/custom-components/blueprint.svg?style=for-the-badge
+[commits]: https://github.com/anarion80/sodexo_dla_ciebie/commits/master
+[hacs]: https://github.com/custom-components/hacs
 [hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
 [discord]: https://discord.gg/Qa5fW2R
 [discord-shield]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge
-[exampleimg]: example.png
+[exampleimg]: sodexo.png
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
 [forum]: https://community.home-assistant.io/
-[license]: https://github.com/custom-components/integration_blueprint/blob/main/LICENSE
-[license-shield]: https://img.shields.io/github/license/custom-components/integration_blueprint.svg?style=for-the-badge
-[maintenance-shield]: https://img.shields.io/badge/maintainer-Joakim%20Sørensen%20%40ludeeus-blue.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/custom-components/integration_blueprint.svg?style=for-the-badge
-[releases]: https://github.com/custom-components/integration_blueprint/releases
-[user_profile]: https://github.com/ludeeus
+[license-shield]: https://img.shields.io/github/license/custom-components/blueprint.svg?style=for-the-badge
+[maintenance-shield]: https://img.shields.io/badge/maintainer-anarion80-blue.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/v/release/anarion80/sodexo_dla_ciebie?style=for-the-badge
+[releases]: https://github.com/anarion80/sodexo_dla_ciebie/releases
+[user_profile]: https://github.com/anarion80

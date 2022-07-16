@@ -4,3 +4,14 @@ venv
 .venv
 .coverage
 .idea
+
+# Visual Studio Code
+.vscode/*
+!.vscode/cSpell.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+.env
+
+# pytest
+.pytest_cache
+.cache

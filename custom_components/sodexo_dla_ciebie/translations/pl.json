@@ -1,0 +1,30 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Sodexo Dla Ciebie",
+                "description": "Jeśli potrzebujesz pomocy z konfiguracją udaj się tutaj: https://github.com/anarion80/sodexo_dla_ciebie",
+                "data": {
+                    "username": "Adres e-mail",
+                    "password": "Hasło",
+                    "active_only": "Wczytaj tylko aktywne karty"
+                }
+            }
+        },
+        "error": {
+            "auth": "Adres e-mail/hasło są niepoprawne"
+        },
+        "abort": {
+            "already_configured": "Integracja jest już skonfigurowana dla tego adresu e-mail"
+        }
+    },
+    "options": {
+        "step": {
+            "user": {
+                "data": {
+                    "sensor": "Sensor enabled"
+                }
+            }
+        }
+    }
+}

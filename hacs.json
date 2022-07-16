@@ -1,10 +1,11 @@
 {
-    "name": "Integration blueprint",
-    "hacs": "1.6.0",
+    "name": "Sodexo Dla Ciebie",
+    "hacs": "0.0.1",
     "domains": [
-        "binary_sensor",
-        "sensor",
-        "switch"
+        "sensor"
     ],
-    "homeassistant": "0.118.0"
+    "homeassistant": "0.118.0",
+    "render_readme": true,
+    "iot_class": "cloud_polling",
+    "country": "PL"
 }
