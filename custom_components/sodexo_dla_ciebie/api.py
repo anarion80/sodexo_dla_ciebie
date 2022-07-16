@@ -57,21 +57,6 @@ class SodexoApiClient:
                 exception,
             )
 
-        # except (KeyError, TypeError) as exception:
-        #     _LOGGER.error(
-        #         "Error parsing information from %s - %s",
-        #         LOGIN_URL,
-        #         exception,
-        #     )
-        # except (aiohttp.ClientError, socket.gaierror) as exception:
-        #     _LOGGER.error(
-        #         "Error fetching information from %s - %s",
-        #         LOGIN_URL,
-        #         exception,
-        #     )
-        # except Exception as exception:  # pylint: disable=broad-except
-        #     _LOGGER.error("Something really wrong happened! - %s", exception)
-
     async def get_cards(self, token: str) -> json:
         """Get all cards"""
         try:

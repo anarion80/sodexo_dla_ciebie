@@ -17,13 +17,9 @@ from homeassistant.const import (
     CONF_USERNAME,
 )
 from homeassistant.helpers.typing import (
-    # ConfigType,
-    # HomeAssistantType,
     StateType,
 )
 from .api import SodexoApiClient
-
-# from .entity import SodexoEntity
 
 from .const import (
     ACTIVE_ONLY,
@@ -45,8 +41,6 @@ async def async_setup_entry(
 ):
     """Setup sensor platform."""
     _LOGGER.debug("Sensor: async_setup_entry")
-    # coordinator = hass.data[DOMAIN][config_entry.entry_id]
-    # # async_add_devices([SodexoCardSensor(coordinator, entry)])
     session = async_get_clientsession(hass, True)
     config = config_entry.data
     api = SodexoApiClient(config[CONF_USERNAME], config[CONF_PASSWORD], session)
@@ -72,41 +66,6 @@ async def async_setup_entry(
             _LOGGER.debug("Adding card - regardless if it's active or not")
             sensors.append(SodexoCardSensor(api, card["id"], config))
     async_add_entities(sensors, update_before_add=True)
-
-
-# async def async_setup_platform(
-#     hass: HomeAssistantType,
-#     config: ConfigType,
-#     async_add_entities: Callable,
-# ) -> None:
-#     """Set up the sensor platform."""
-#     _LOGGER.debug("Sensor: async_setup_platform")
-#     session = async_get_clientsession(hass)
-#     api = SodexoApiClient(config[CONF_USERNAME], config[CONF_PASSWORD], session)
-
-#     cards = []
-#     try:
-#         token = await api.login()
-#         if token:
-#             cards = await api.get_cards(token)
-#             _LOGGER.debug("Got %s card(s)", len(cards))
-#     except ClientError as err:
-#         _LOGGER.error("Error gettings cards from API - %s", err)
-
-#     sensors = []
-#     _LOGGER.debug("ACTIVE ONLY = %s", config[ACTIVE_ONLY])
-#     for card in cards:
-#         if config[ACTIVE_ONLY]:
-#             _LOGGER.debug("Only adding active cards")
-#             if card["status"] == "ACTIVE":
-#                 _LOGGER.debug("Card %s is active - adding!", card["id"])
-#                 sensors.append(SodexoCardSensor(api, card["id"], config))
-#         else:
-#             _LOGGER.debug("Adding card - regardless if it's active or not")
-#             sensors.append(SodexoCardSensor(api, card["id"], config))
-#     _LOGGER.debug(sensors)
-#     async_add_entities(sensors, update_before_add=True)
-
 
 class SodexoCardSensor(SensorEntity):
     """Representation of a Sodexo Card (Sensor)."""
@@ -148,10 +107,6 @@ class SodexoCardSensor(SensorEntity):
         """Return True if entity is available."""
         return self._available
 
-    # @property
-    # def state(self) -> float:
-    #     return self._state
-
     @property
     def native_value(self) -> StateType:
         """Return the state."""
@@ -165,11 +120,6 @@ class SodexoCardSensor(SensorEntity):
     def state_class(self):
         """Return state class."""
         return self._state_class
-
-    # @property
-    # def unit_of_measurement(self):
-    #     """Return the unit the value is expressed in."""
-    #     return self._unit_of_measurement
 
     @property
     def icon(self):
