@@ -3,7 +3,7 @@
 NAME = "Sodexo Dla Ciebie"
 DOMAIN = "sodexo_dla_ciebie"
 DOMAIN_DATA = f"{DOMAIN}_data"
-VERSION = "0.0.1"
+VERSION = "1.0.0"
 ATTRIBUTION = "Data provided by https://api4you.sodexo.pl"
 ISSUE_URL = "https://github.com/anarion80/sodexo_dla_ciebie/issues"
 

@@ -1,6 +1,6 @@
 {
     "name": "Sodexo Dla Ciebie",
-    "hacs": "0.0.1",
+    "hacs": "1.0.0",
     "homeassistant": "2022.7.5",
     "render_readme": true,
     "country": "PL"

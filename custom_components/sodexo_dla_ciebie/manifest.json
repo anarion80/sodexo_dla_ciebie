@@ -4,7 +4,7 @@
   "documentation": "https://github.com/anarion80/sodexo_dla_ciebie",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/anarion80/sodexo_dla_ciebie/issues",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "config_flow": true,
   "codeowners": [
     "@anarion80"
