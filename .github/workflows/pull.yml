@@ -4,18 +4,12 @@ on:
   pull_request:
 
 jobs:
-  validate:
+  hassfest:
+    name: Hassfest validation
     runs-on: "ubuntu-latest"
-    name: Validate
     steps:
-        - uses: "actions/checkout@v2"
-
-        - name: HACS validation
-          uses: "hacs/action@main"
-          with:
-            category: "integration"
-            ignore: brands
-
+        - name: Check out the repository
+          uses: "actions/checkout@v2"
         - name: Hassfest validation
           uses: "home-assistant/actions/hassfest@master"
 
