@@ -35,7 +35,11 @@ class SodexoApiClient:
                 async with self._session.post(
                     LOGIN_URL,
                     data=json.dumps(
-                        {"login": self._username, "password": self._password}
+                        {
+                            "deviceData": {"deviceOrigin": "WEB"},
+                            "login": self._username,
+                            "password": self._password,
+                        }
                     ),
                     headers=HEADERS,
                 ) as res:
