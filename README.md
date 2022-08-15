@@ -8,9 +8,6 @@
 ![Project Maintenance][maintenance-shield]
 [![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
 
-[![Discord][discord-shield]][discord]
-[![Community Forum][forum-shield]][forum]
-
 Sodexo Dla Ciebie - Custom Component for Home Assistant
 
 The data source for this integration is [Sodexo Dla Ciebie](https://dlaciebie.sodexo.pl/) - Polish instance od Sodexo, provider of employee benefit cards.
@@ -74,7 +71,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 [commits-shield]: https://img.shields.io/github/commit-activity/y/custom-components/blueprint.svg?style=for-the-badge
 [commits]: https://github.com/anarion80/sodexo_dla_ciebie/commits/master
 [hacs]: https://github.com/custom-components/hacs
-[hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
+[hacsbadge]: https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge
 [discord]: https://discord.gg/Qa5fW2R
 [discord-shield]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge
 [exampleimg]: sodexo.png
