@@ -1,5 +1,4 @@
-"""
-Custom integration to integrate Sodexo Dla Ciebie with Home Assistant.
+"""Custom integration to integrate Sodexo Dla Ciebie with Home Assistant.
 
 For more details about this integration, please refer to
 https://github.com/anarion80/sodexo_dla_ciebie
@@ -10,22 +9,8 @@ import logging
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import Config, HomeAssistant
-from homeassistant.exceptions import ConfigEntryNotReady
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from homeassistant.const import (
-    CONF_PASSWORD,
-    CONF_USERNAME,
-)
-
-from .api import SodexoApiClient
-
-from .const import (
-    DOMAIN,
-    PLATFORM,
-    STARTUP_MESSAGE,
-)
+from .const import DOMAIN, PLATFORM, STARTUP_MESSAGE
 
 SCAN_INTERVAL = timedelta(minutes=30)
 

@@ -1,33 +1,24 @@
 """Sensor platform for Sodexo integration."""
-import logging
 from datetime import timedelta
+import logging
 from typing import Any, Dict
+
 from aiohttp import ClientError
+
 from homeassistant import config_entries, core
-from homeassistant.helpers.device_registry import DeviceEntryType
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorStateClass,
 )
-from homeassistant.const import (
-    CONF_PASSWORD,
-    CONF_USERNAME,
-)
-from homeassistant.helpers.typing import (
-    StateType,
-)
-from .api import SodexoApiClient
+from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.device_registry import DeviceEntryType
+from homeassistant.helpers.entity import DeviceInfo
+from homeassistant.helpers.typing import StateType
 
-from .const import (
-    ACTIVE_ONLY,
-    ATTRIBUTION,
-    DOMAIN,
-    DEFAULT_ICON,
-    UNIT_OF_MEASUREMENT,
-)
+from .api import SodexoApiClient
+from .const import ACTIVE_ONLY, ATTRIBUTION, DEFAULT_ICON, DOMAIN, UNIT_OF_MEASUREMENT
 
 _LOGGER = logging.getLogger(__package__)
 
@@ -39,7 +30,7 @@ async def async_setup_entry(
     config_entry: config_entries.ConfigEntry,
     async_add_entities,
 ):
-    """Setup sensor platform."""
+    """Set up sensor platform."""
     _LOGGER.debug("Sensor: async_setup_entry")
     session = async_get_clientsession(hass, True)
     config = config_entry.data
@@ -67,10 +58,12 @@ async def async_setup_entry(
             sensors.append(SodexoCardSensor(api, card["id"], config))
     async_add_entities(sensors, update_before_add=True)
 
+
 class SodexoCardSensor(SensorEntity):
     """Representation of a Sodexo Card (Sensor)."""
 
     def __init__(self, api: SodexoApiClient, _card_id: int, config: Any):
+        """Init Sodexo card."""
         super().__init__()
         self._card_id = _card_id
         self._api = api
@@ -95,6 +88,7 @@ class SodexoCardSensor(SensorEntity):
 
     @property
     def has_entity_name(self) -> bool:
+        """Return True if entity has a name."""
         return True
 
     @property
@@ -114,6 +108,7 @@ class SodexoCardSensor(SensorEntity):
 
     @property
     def device_class(self):
+        """Return device class."""
         return self._device_class
 
     @property
@@ -123,14 +118,17 @@ class SodexoCardSensor(SensorEntity):
 
     @property
     def icon(self):
+        """Return icon."""
         return self._icon
 
     @property
     def entity_picture(self):
+        """Return Picture."""
         return self._entity_picture
 
     @property
     def attribution(self):
+        """Return attribution."""
         return ATTRIBUTION
 
     @property

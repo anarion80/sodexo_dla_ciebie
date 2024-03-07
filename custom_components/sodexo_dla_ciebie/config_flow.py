@@ -1,21 +1,16 @@
-"""Adds config flow for Sodexo Card"""
+"""Adds config flow for Sodexo Card."""
 import logging
 from typing import Any
-import voluptuous as vol
-from homeassistant import config_entries
-from homeassistant.helpers.aiohttp_client import async_create_clientsession
-from homeassistant.const import (
-    CONF_PASSWORD,
-    CONF_USERNAME,
-)
-import homeassistant.helpers.config_validation as cv
-from .api import SodexoApiClient
 
-from .const import (
-    ACTIVE_ONLY,
-    DEFAULT_ACTIVE_ONLY,
-    DOMAIN,
-)
+import voluptuous as vol
+
+from homeassistant import config_entries
+from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
+from homeassistant.helpers.aiohttp_client import async_create_clientsession
+import homeassistant.helpers.config_validation as cv
+
+from .api import SodexoApiClient
+from .const import ACTIVE_ONLY, DEFAULT_ACTIVE_ONLY, DOMAIN
 
 _LOGGER = logging.getLogger(__package__)
 

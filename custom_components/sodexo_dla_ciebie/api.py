@@ -1,13 +1,12 @@
 """Sample API Client."""
+import asyncio
+import asyncio.timeout
 import json
 import logging
-import asyncio
-import aiohttp
-import async_timeout
 
+import aiohttp
 
 # import socket
-
 from .const import API_URL, LOGIN_URL
 
 TIMEOUT = 10
@@ -18,7 +17,7 @@ HEADERS = {"Content-Type": "application/json", "Accept": "application/json"}
 
 
 class SodexoApiClient:
-    """Interfaces to https://api4you.sodexo.pl/"""
+    """Interfaces to https://api4you.sodexo.pl/."""
 
     def __init__(
         self, username: str, password: str, session: aiohttp.ClientSession
@@ -31,26 +30,25 @@ class SodexoApiClient:
     async def login(self):
         """Issue LOGIN request."""
         try:
-            async with async_timeout.timeout(TIMEOUT):
-                async with self._session.post(
-                    LOGIN_URL,
-                    data=json.dumps(
-                        {
-                            "deviceData": {"deviceOrigin": "WEB"},
-                            "login": self._username,
-                            "password": self._password,
-                        }
-                    ),
-                    headers=HEADERS,
-                ) as res:
-                    if res.status == 200 and res.content_type == "application/json":
-                        resp = await res.json()
-                        if resp["token"]:
-                            token = resp["token"]
-                            _LOGGER.debug("Got token!")
-                            return token
-                        raise Exception("Login failed!", resp["message"])
-                    raise Exception("Could not retrieve token for user, login failed")
+            async with asyncio.timeout.timeout(TIMEOUT), self._session.post(
+                LOGIN_URL,
+                data=json.dumps(
+                    {
+                        "deviceData": {"deviceOrigin": "WEB"},
+                        "login": self._username,
+                        "password": self._password,
+                    }
+                ),
+                headers=HEADERS,
+            ) as res:
+                if res.status == 200 and res.content_type == "application/json":
+                    resp = await res.json()
+                    if resp["token"]:
+                        token = resp["token"]
+                        _LOGGER.debug("Got token!")
+                        return token
+                    raise Exception("Login failed!", resp["message"])
+                raise Exception("Could not retrieve token for user, login failed")
         except aiohttp.ClientError as err:
             _LOGGER.exception(err)
 
@@ -62,7 +60,7 @@ class SodexoApiClient:
             )
 
     async def get_cards(self, token: str) -> json:
-        """Get all cards"""
+        """Get all cards."""
         try:
             _LOGGER.debug("Getting all cards...")
             _LOGGER.debug("Token: %s", token)
@@ -83,7 +81,7 @@ class SodexoApiClient:
             _LOGGER.exception(err)
 
     async def get_card_details(self, token: str, card_id: int) -> json:
-        """Get single card data"""
+        """Get single card data."""
         try:
             _LOGGER.debug("Getting card details...")
             _LOGGER.debug("Token: %s", token)
