@@ -1,17 +1,19 @@
+# artifacts
 __pycache__
-pythonenv*
-venv
-.venv
+.pytest*
+*.egg-info
+*/build/*
+*/dist/*
+.ruff_cache
+
+
+# misc
 .coverage
-.idea
+coverage.xml
 
-# Visual Studio Code
-.vscode/*
-!.vscode/cSpell.json
-!.vscode/extensions.json
-!.vscode/tasks.json
-.env
 
-# pytest
-.pytest_cache
-.cache
+# Home Assistant configuration
+config/*
+!config/configuration.yaml
+
+homeassistant/*
